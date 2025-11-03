@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    width: 100vw;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    height: 100vh;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  :root {
+    --color-primary: #00ff88;
+    --color-accent: #00cc6a;
+    --color-base: #ffffff;
+    --color-light: rgba(0, 255, 136, 0.1);
+    --color-inverted: #000a0a;
+    --color-secondary: #ff0080;
+    --color-bg-left: #000a0a;
+    --color-bg-right: #001a1a;
+    --color-tertiary: #00ffff;
+    --glow-primary: rgba(0, 255, 136, 0.6);
+    --glow-secondary: rgba(255, 0, 128, 0.4);
+    --glass-bg: rgba(0, 26, 26, 0.7);
+    --glass-border: rgba(0, 255, 136, 0.2);
+  }
+
+  /* Simplified background - no animations */
+  .bg {
+    background: linear-gradient(135deg, var(--color-bg-left) 0%, var(--color-bg-right) 100%);
+    position: relative;
+  }
+
+  /* Optional subtle glow - only on hover/focus */
+  .bg:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, var(--glow-primary) 0%, transparent 70%);
+    opacity: 0.05;
+    pointer-events: none;
+  }
+
+  /* Simplified glass effect */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    transition: border-color 0.2s ease;
+  }
+
+  .glass:hover {
+    border-color: var(--color-primary);
+  }
+
+  /* Simple glow text - no animations */
+  .neon-glow {
+    color: var(--color-primary);
+    text-shadow: 0 0 8px var(--glow-primary);
+  }
+
+  /* Simplified border */
+  .neon-border {
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 0 5px var(--glow-primary);
+  }
+
+  /* Simple link effect */
+  .link-underline {
+    position: relative;
+    transition: color 0.2s ease;
+    border-bottom: 1px solid transparent;
+  }
+
+  .link-underline:hover {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+  }
+
+  /* Simplified button */
+  .btn-hover {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    transition: transform 0.2s ease;
+  }
+
+  .btn-hover:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Simple card hover */
+  .card-hover {
+    transition: transform 0.2s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Static gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Simplified scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-left);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+  }
+
+  /* Project content styling */
+  .project {
+    color: var(--color-base);
+  }
+
+  .project h1,
+  .project h2,
+  .project h3 {
+    font-weight: bold;
+    line-height: 1.5;
+    color: var(--color-primary);
+  }
+
+  .project h1 {
+    font-size: 1.5em;
+  }
+
+  .project h2 {
+    font-size: 1.3em;
+  }
+
+  .project h3 {
+    font-size: 1.2em;
+  }
+
+  .project a {
+    color: var(--color-primary);
+    transition: color 0.2s ease;
+  }
+
+  .project a:hover {
+    color: var(--color-accent);
+  }
+
+  .project code {
+    background: var(--glass-bg);
+    color: var(--color-secondary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--glass-border);
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  }
+
+  .project p {
+    line-height: 1.6;
+    margin: 1em 0;
+  }
+
+  .project ul {
+    margin: 1em 0;
+    padding-left: 1.5em;
+  }
+
+  .project li {
+    margin: 0.5em 0;
+    position: relative;
+  }
+
+  .project li::marker {
+    color: var(--color-primary);
+  }
+
+  /* Only essential animations that don't cause repaints */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Utility for fade in */
+  .fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  /* Responsive - disable effects on mobile for better performance */
+  @media (max-width: 768px) {
+    .glass {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      background: rgba(0, 26, 26, 0.8);
+    }
+    
+    .bg:hover::before {
+      display: none;
+    }
+    
+    .btn-hover:hover,
+    .card-hover:hover {
+      transform: none;
+    }
+  }
+
+  /* Disable all animations for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Performance optimization: will-change for elements that will transform */
+  .btn-hover,
+  .card-hover {
+    will-change: transform;
+  }
+
+  /* Force hardware acceleration for smooth transforms */
+  .btn-hover:hover,
+  .card-hover:hover {
+    transform: translateZ(0);
+  }
+}
