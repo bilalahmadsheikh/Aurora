@@ -103,8 +103,8 @@ export default function Post({ post }) {
         </div>
 
         {/* Enhanced Article Content */}
-        <div className="w-full mx-auto px-6 py-12 relative z-10">
-          <article className="backdrop-blur-xs border border-green-500/40 rounded-2xl shadow-2xl shadow-green-500/10 overflow-hidden relative bg-black/30">
+        <div className="w-full sm:max-w-3xl sm:mx-auto px-3 sm:px-6 py-8 sm:py-12 relative z-10">
+          <article className="w-full bg-black/30 backdrop-blur-xs border border-green-500/40 rounded-none sm:rounded-2xl shadow-2xl shadow-green-500/10 overflow-hidden relative">
             
             {/* Glowing border effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 via-transparent to-green-500/20 rounded-2xl blur-sm"></div>
