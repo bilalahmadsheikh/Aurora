@@ -112,54 +112,66 @@ export default function Post({ post }) {
             {/* Content Body with Enhanced Cyberpunk Styling */}
             <div className="relative p-8 md:p-12 backdrop-blur-xs bg-black/20">
               <div 
-                className="prose prose-invert prose-green max-w-none
-                  /* Enhanced Headings */
-                  prose-headings:text-green-400 prose-headings:font-mono prose-headings:tracking-wide prose-headings:relative
-                  prose-h1:text-3xl prose-h1:md:text-4xl prose-h1:mb-6 prose-h1:pb-4 prose-h1:border-b-2 prose-h1:border-green-500/50
-                  prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mb-5 prose-h2:pb-3 prose-h2:border-b prose-h2:border-green-500/30
-                  prose-h3:text-xl prose-h3:md:text-2xl prose-h3:mb-4 prose-h3:text-green-300
-                  prose-h4:text-lg prose-h4:md:text-xl prose-h4:mb-3 prose-h4:text-green-300
-                  
-                  /* Enhanced Paragraphs */
-                  prose-p:text-gray-100 prose-p:leading-relaxed prose-p:text-base prose-p:md:text-lg prose-p:mb-6
-                  prose-p:font-light prose-p:tracking-wide
-                  
-                  /* Enhanced Text Styles */
-                  prose-strong:text-green-300 prose-strong:font-semibold prose-strong:bg-green-900/20 prose-strong:px-1 prose-strong:rounded
+                className="
+                  prose prose-invert prose-green max-w-none w-full
+
+                  /* Base */
+                  text-gray-100 leading-relaxed tracking-wide font-light
+
+                  /* Headings Glow + Animation */
+                  prose-headings:text-green-300 prose-headings:font-mono prose-headings:tracking-wide
+                  prose-headings:relative prose-headings:transition-all prose-headings:duration-300
+                  hover:prose-headings:text-green-200 hover:prose-headings:drop-shadow-[0_0_10px_rgba(34,197,94,0.5)]
+
+                  prose-h1:text-4xl prose-h1:md:text-5xl prose-h1:mb-8 prose-h1:pb-4
+                  prose-h1:border-b-2 prose-h1:border-green-500/40 prose-h1:drop-shadow-[0_0_6px_rgba(34,197,94,0.4)]
+
+                  prose-h2:text-3xl prose-h2:mb-6 prose-h2:pb-2 prose-h2:border-b prose-h2:border-green-500/30
+                  prose-h2:drop-shadow-[0_0_4px_rgba(34,197,94,0.25)]
+
+                  /* Paragraph Improvements */
+                  prose-p:text-gray-200 prose-p:text-lg prose-p:md:text-xl prose-p:mb-6
+                  prose-p:leading-relaxed hover:prose-p:text-gray-100 hover:prose-p:drop-shadow-[0_0_12px_rgba(34,197,94,0.15)]
+
+                  /* Bold & Italic */
+                  prose-strong:text-green-300 prose-strong:font-semibold prose-strong:bg-green-900/30
+                  prose-strong:px-1 prose-strong:rounded prose-strong:shadow-md prose-strong:shadow-green-500/30
+
                   prose-em:text-green-200 prose-em:italic
-                  
-                  /* Enhanced Code Blocks */
-                  prose-code:text-green-300 prose-code:bg-gray-900/80 prose-code:px-3 prose-code:py-1 prose-code:rounded-md 
-                  prose-code:border prose-code:border-green-600/50 prose-code:font-mono prose-code:text-sm
-                  prose-code:shadow-sm prose-code:shadow-green-500/25
-                  
-                  prose-pre:bg-gray-900/90 prose-pre:border-2 prose-pre:border-green-500/50 prose-pre:shadow-xl 
-                  prose-pre:shadow-green-500/20 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:p-6
-                  prose-pre:relative prose-pre:overflow-hidden
-                  
-                  /* Enhanced Blockquotes */
-                  prose-blockquote:border-l-4 prose-blockquote:border-green-500 prose-blockquote:bg-gray-700/40 
-                  prose-blockquote:backdrop-blur-sm prose-blockquote:text-gray-100 prose-blockquote:italic 
-                  prose-blockquote:pl-6 prose-blockquote:py-4 prose-blockquote:rounded-r-lg
-                  prose-blockquote:shadow-lg prose-blockquote:shadow-green-500/10
-                  
-                  /* Enhanced Lists */
-                  prose-ul:text-gray-100 prose-ul:space-y-2 prose-ol:text-gray-100 prose-ol:space-y-2
-                  prose-li:text-gray-100 prose-li:marker:text-green-400 prose-li:marker:font-bold
-                  prose-li:pl-2 prose-li:relative
-                  
-                  /* Enhanced Links */
-                  prose-a:text-green-400 prose-a:underline-offset-4 prose-a:decoration-green-500/50
-                  hover:prose-a:text-green-300 prose-a:font-medium prose-a:transition-all prose-a:duration-300
-                  hover:prose-a:decoration-green-400 hover:prose-a:shadow-sm hover:prose-a:shadow-green-500/25
-                  
+
+                  /* Code blocks — holographic feel */
+                  prose-code:text-green-300 prose-code:bg-gray-900/70 prose-code:px-2 prose-code:py-1
+                  prose-code:rounded prose-code:border prose-code:border-green-600/40 prose-code:font-mono
+                  prose-code:shadow-md prose-code:shadow-green-500/30
+
+                  prose-pre:bg-black/60 prose-pre:border prose-pre:border-green-600/40 prose-pre:shadow-2xl 
+                  prose-pre:shadow-green-500/20 prose-pre:rounded-xl prose-pre:p-6 prose-pre:backdrop-blur-md
+
+                  /* Blockquote Cinematic Glow */
+                  prose-blockquote:border-l-4 prose-blockquote:border-green-400 prose-blockquote:bg-black/30
+                  prose-blockquote:drop-shadow-[0_0_15px_rgba(34,197,94,0.3)] prose-blockquote:backdrop-blur-md
+                  prose-blockquote:pl-6 prose-blockquote:py-4 prose-blockquote:rounded-r-xl prose-blockquote:italic
+
+                  /* Lists */
+                  prose-li:marker:text-green-400 prose-li:marker:font-bold prose-li:pl-2
+
+                  /* Links */
+                  prose-a:text-green-400 prose-a:underline-offset-4 prose-a:decoration-green-500/40
+                  hover:prose-a:text-green-300 hover:prose-a:decoration-green-300
+                  prose-a:transition-all prose-a:duration-300 hover:prose-a:drop-shadow-[0_0_10px_rgba(34,197,94,0.4)]
+
                   /* Tables */
-                  prose-table:border-collapse prose-table:border prose-table:border-green-500/30
-                  prose-th:bg-gray-700/50 prose-th:text-green-400 prose-th:font-mono prose-th:border prose-th:border-green-500/30
-                  prose-td:border prose-td:border-green-500/20 prose-td:text-gray-100
-                  
-                  /* HR */
-                  prose-hr:border-green-500/50 prose-hr:my-8"
+                  prose-table:border prose-table:border-green-500/20 prose-th:bg-black/40
+                  prose-th:text-green-300 prose-td:border-green-500/10
+
+                  /* Divider */
+                  prose-hr:border-green-500/40 prose-hr:my-10
+
+                  /* Page Glow Wrapper */
+                  shadow-2xl shadow-green-500/10 border border-green-500/20 rounded-xl p-6 md:p-10
+                  bg-black/40 backdrop-blur-lg 
+                "
+
                 dangerouslySetInnerHTML={{ __html: post.contentHtml }}
               />
             </div>
