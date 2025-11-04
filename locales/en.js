@@ -1,7 +1,7 @@
 export default {
   navbar: {
     home: "Home",
-    projects: "Research",
+    projects: "Articles",
     blog: "Publications",
     about: "About Aurora",
   },
@@ -15,7 +15,7 @@ export default {
       description: "Looks like you're exploring the unknown. (404)",
     },
     projects: {
-      title: "Our Research",
+      title: "Our Articles",
       description: "Explore the frontiers of science and innovation.",
     },
     blog: {
@@ -40,8 +40,8 @@ export default {
     load_more: "Load More",
   },
   project: {
-    return_to_projects: "Back to Research",
-    all_projects: "All Research Projects",
+    return_to_projects: "Back to Articles",
+    all_projects: "All Research Articles Projects",
   },
   share_the_fluff: "Powered by Aurora Science Society",
 };

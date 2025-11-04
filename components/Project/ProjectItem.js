@@ -12,7 +12,9 @@ export default function ProjectItem({ project }) {
     "/research1.png",
     "/research2.webp", 
     "/research3.webp",
-    "/research4.webp"
+    "/research4.webp",
+    "/research5.jpg",
+    "/research6.jpeg"
   ];
   
   // Create a consistent random selection based on project slug
@@ -30,44 +32,65 @@ export default function ProjectItem({ project }) {
   };
   
   const computedImg = getRandomImage(project.slug);
-  
+
   return (
     <>
-      <div
-        className={
-          "container flex h-60 w-56 flex-col rounded-2xl text-me-base shadow-xl shadow-me-light"
-        }
-      >
-        <div className='rounded-2xl border-2 border-me-primary hover:border-me-accent'>
+      <div className="relative container flex h-60 w-56 flex-col rounded-2xl overflow-hidden shadow-xl shadow-me-light group">
+
+        {/* Background Image */}
+        <div className="rounded-2xl border-2 border-me-primary group-hover:border-me-accent overflow-hidden">
           <Image
-            className='rounded-xl hover:scale-150'
+            className="
+              rounded-xl 
+              object-cover 
+              opacity-90 
+              group-hover:opacity-70 
+              group-hover:scale-105
+              transition-all duration-600 ease-out
+            "
             src={computedImg}
-            width='224'
-            height='256'
-            layout='responsive'
-            objectFit='fill'
-            alt='random background image'
-          ></Image>
+            width="224"
+            height="256"
+            layout="responsive"
+            objectFit="cover"
+            alt="research preview"
+          />
         </div>
+
+        {/* Light Fade Overlay */}
         <Link
-          href={{
-            pathname: "/projects/[slug]",
-            query: { slug: project.slug },
-          }}
+          href={{ pathname: "/projects/[slug]", query: { slug: project.slug } }}
         >
-          <a className='absolute h-64 w-56 cursor-pointer rounded-2xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-light)] opacity-30 hover:opacity-60'></a>
+          <a className="
+            absolute inset-0 
+            cursor-pointer 
+            rounded-2xl 
+            bg-gradient-to-b 
+            from-black/10 via-black/20 to-black/60
+            opacity-80
+            group-hover:opacity-90
+            transition-all duration-600
+          "/>
         </Link>
 
-        <div className='text-shadow-base absolute flex h-28 w-56 translate-y-36 flex-col overflow-clip  rounded-b-xl bg-me-light font-bold text-me-inverted hover:text-me-primary'>
+        {/* Title */}
+        <div className="absolute bottom-3 z-20 w-full text-center px-2">
           <Link
-            href={{
-              pathname: "/projects/[slug]",
-              query: { slug: project.slug },
-            }}
+            href={{ pathname: "/projects/[slug]", query: { slug: project.slug } }}
           >
             <a>
-              <h4 className='cursor-pointer py-1 text-center text-2xl'>
-                {project.matter.title ?? "No Title"}
+              <h4 className="
+                font-serif 
+                font-extrabold 
+                text-lg 
+                text-white 
+                drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]
+                tracking-wide
+                group-hover:text-green-300 
+                group-hover:tracking-wider
+                transition-all duration-400
+              ">
+                {project.matter.title ?? "Untitled Research"}
               </h4>
             </a>
           </Link>
@@ -77,4 +100,5 @@ export default function ProjectItem({ project }) {
       </div>
     </>
   );
+
 }

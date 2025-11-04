@@ -2,7 +2,7 @@ const fluffConfig = {
   website: {
     title: "Aurora",
     description: "Scientific research and publications platform",
-    author: "Bilal Ahmad",
+    author: "Aurora Magazine",
     defaultLocale: "en", // Set default to English
   },
   theme: "fluff", // Set fluff as default theme
